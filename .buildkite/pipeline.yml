@@ -124,3 +124,39 @@ steps:
           - "/dev/mshv"
         privileged: true
     timeout_in_minutes: 5
+
+  - label:  "clippy-aarch64"
+    command:  "RUSTFLAGS=\"-C target-feature=+crt-static -C linker=aarch64-linux-gnu-gcc\" cargo clippy --tests --all  --target aarch64-unknown-linux-gnu"
+    retry:
+      automatic: false
+    agents:
+      hypervisor: mshv
+    plugins:
+    - docker#v3.8.0:
+        image: rustvmm/dev:v16
+        always-pull: true
+    timeout_in_minutes: 5
+
+  - label:  "build-aarch64"
+    command:  "RUSTFLAGS=\"-C target-feature=+crt-static -C linker=aarch64-linux-gnu-gcc\" cargo build --target aarch64-unknown-linux-gnu"
+    retry:
+      automatic: false
+    agents:
+      hypervisor: mshv
+    plugins:
+    - docker#v3.8.0:
+        image: rustvmm/dev:v16
+        always-pull: true
+    timeout_in_minutes: 5
+
+  - label:  "vmt-aarch64"
+    command:  "RUSTFLAGS=\"-C target-feature=+crt-static -C linker=aarch64-linux-gnu-gcc\" cargo fmt -- --check"
+    retry:
+      automatic: false
+    agents:
+      hypervisor: mshv
+    plugins:
+    - docker#v3.8.0:
+        image: rustvmm/dev:v16
+        always-pull: true
+    timeout_in_minutes: 5
