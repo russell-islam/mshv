@@ -13901,6 +13901,113 @@ impl Default for mshv_create_partition {
     }
 }
 #[repr(C)]
+#[derive(Debug, Default)]
+pub struct mshv_modify_gpa_host_access {
+    pub host_access: __u32,
+    pub flags: __u32,
+    pub acquire: __u8,
+    pub gpa_list_size: __u64,
+    pub gpa_list: __IncompleteArrayField<__u64>,
+}
+#[test]
+fn bindgen_test_layout_mshv_modify_gpa_host_access() {
+    assert_eq!(
+        ::std::mem::size_of::<mshv_modify_gpa_host_access>(),
+        24usize,
+        concat!("Size of: ", stringify!(mshv_modify_gpa_host_access))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<mshv_modify_gpa_host_access>(),
+        8usize,
+        concat!("Alignment of ", stringify!(mshv_modify_gpa_host_access))
+    );
+    fn test_field_host_access() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<mshv_modify_gpa_host_access>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).host_access) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(mshv_modify_gpa_host_access),
+                "::",
+                stringify!(host_access)
+            )
+        );
+    }
+    test_field_host_access();
+    fn test_field_flags() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<mshv_modify_gpa_host_access>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).flags) as usize - ptr as usize
+            },
+            4usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(mshv_modify_gpa_host_access),
+                "::",
+                stringify!(flags)
+            )
+        );
+    }
+    test_field_flags();
+    fn test_field_acquire() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<mshv_modify_gpa_host_access>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).acquire) as usize - ptr as usize
+            },
+            8usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(mshv_modify_gpa_host_access),
+                "::",
+                stringify!(acquire)
+            )
+        );
+    }
+    test_field_acquire();
+    fn test_field_gpa_list_size() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<mshv_modify_gpa_host_access>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).gpa_list_size) as usize - ptr as usize
+            },
+            16usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(mshv_modify_gpa_host_access),
+                "::",
+                stringify!(gpa_list_size)
+            )
+        );
+    }
+    test_field_gpa_list_size();
+    fn test_field_gpa_list() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<mshv_modify_gpa_host_access>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).gpa_list) as usize - ptr as usize
+            },
+            24usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(mshv_modify_gpa_host_access),
+                "::",
+                stringify!(gpa_list)
+            )
+        );
+    }
+    test_field_gpa_list();
+}
+#[repr(C)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct mshv_user_mem_region {
     pub size: __u64,
