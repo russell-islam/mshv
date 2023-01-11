@@ -14008,6 +14008,104 @@ fn bindgen_test_layout_mshv_modify_gpa_host_access() {
     test_field_gpa_list();
 }
 #[repr(C)]
+#[derive(Debug)]
+pub struct mshv_import_isolated_pages {
+    pub page_type: hv_isolated_page_type,
+    pub page_size: hv_isolated_page_size,
+    pub num_pages: __u64,
+    pub page_number: __IncompleteArrayField<__u64>,
+}
+#[test]
+fn bindgen_test_layout_mshv_import_isolated_pages() {
+    assert_eq!(
+        ::std::mem::size_of::<mshv_import_isolated_pages>(),
+        16usize,
+        concat!("Size of: ", stringify!(mshv_import_isolated_pages))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<mshv_import_isolated_pages>(),
+        8usize,
+        concat!("Alignment of ", stringify!(mshv_import_isolated_pages))
+    );
+    fn test_field_page_type() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<mshv_import_isolated_pages>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).page_type) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(mshv_import_isolated_pages),
+                "::",
+                stringify!(page_type)
+            )
+        );
+    }
+    test_field_page_type();
+    fn test_field_page_size() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<mshv_import_isolated_pages>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).page_size) as usize - ptr as usize
+            },
+            4usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(mshv_import_isolated_pages),
+                "::",
+                stringify!(page_size)
+            )
+        );
+    }
+    test_field_page_size();
+    fn test_field_num_pages() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<mshv_import_isolated_pages>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).num_pages) as usize - ptr as usize
+            },
+            8usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(mshv_import_isolated_pages),
+                "::",
+                stringify!(num_pages)
+            )
+        );
+    }
+    test_field_num_pages();
+    fn test_field_page_number() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<mshv_import_isolated_pages>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).page_number) as usize - ptr as usize
+            },
+            16usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(mshv_import_isolated_pages),
+                "::",
+                stringify!(page_number)
+            )
+        );
+    }
+    test_field_page_number();
+}
+impl Default for mshv_import_isolated_pages {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
 #[derive(Debug, Default, Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct mshv_user_mem_region {
     pub size: __u64,
