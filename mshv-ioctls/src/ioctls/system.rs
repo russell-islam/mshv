@@ -288,7 +288,7 @@ impl Mshv {
         if is_snp {
             mshv_builder = mshv_builder
                 .set_isolation_type(HV_PARTITION_ISOLATION_TYPE_SNP as u64)
-                .set_shared_gpa_boundary_page_number(0_u64);
+                .set_shared_gpa_boundary_page_number(34359738368_u64);
         }
 
         let pr = mshv_builder.build();
